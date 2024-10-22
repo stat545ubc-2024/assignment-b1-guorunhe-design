@@ -22,7 +22,8 @@ I will create a function called `summarize_data` that takes a data frame, groups
 ```{r create-function}
 #' Summarize Data by Group
 #'
-#' This function takes a data frame, groups it by a specified column, and summarizes a numeric column by calculating the mean and standard deviation.
+#' This function takes a data frame, groups it by a specified column,
+#' and summarizes a numeric column by calculating the mean and standard deviation.
 #'
 #' @param data A data frame to be summarized.
 #' @param group_var A string specifying the column name to group by.

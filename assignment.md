@@ -12,7 +12,8 @@ inputs.
 ``` r
 #' Summarize Data by Group
 #'
-#' This function takes a data frame, groups it by a specified column, and summarizes a numeric column by calculating the mean and standard deviation.
+#' This function takes a data frame, groups it by a specified column,
+#' and summarizes a numeric column by calculating the mean and standard deviation.
 #'
 #' @param data A data frame to be summarized.
 #' @param group_var A string specifying the column name to group by.
@@ -123,7 +124,7 @@ test_that("summarize_data works correctly with no NAs", {
 })
 ```
 
-    ## Test passed 🎊
+    ## Test passed 🌈
 
 ``` r
 test_that("summarize_data handles NA values correctly when na.rm = TRUE", {
@@ -135,7 +136,7 @@ test_that("summarize_data handles NA values correctly when na.rm = TRUE", {
 })
 ```
 
-    ## Test passed 🎊
+    ## Test passed 😸
 
 ``` r
 test_that("summarize_data handles NA values correctly when na.rm = FALSE", {
@@ -147,7 +148,7 @@ test_that("summarize_data handles NA values correctly when na.rm = FALSE", {
 })
 ```
 
-    ## Test passed 🎉
+    ## Test passed 😀
 
 ``` r
 test_that("summarize_data throws an error for non-numeric summary_var", {
@@ -155,7 +156,7 @@ test_that("summarize_data throws an error for non-numeric summary_var", {
 })
 ```
 
-    ## Test passed 😀
+    ## Test passed 🎉
 
 ``` r
 test_that("summarize_data throws an error when group_var does not exist", {
@@ -163,4 +164,4 @@ test_that("summarize_data throws an error when group_var does not exist", {
 })
 ```
 
-    ## Test passed 🥇
+    ## Test passed 🎊
