@@ -112,10 +112,6 @@ expected under various conditions. I will use the `testthat` package to
 write these tests.
 
 ``` r
-# Create a modified version of mtcars with a non-numeric column for testing
-mtcars_test <- mtcars %>%
-  mutate(gear_factor = as.factor(gear))
-
 test_that("summarize_data works correctly with no NAs", {
   result <- summarize_data(mtcars, "cyl", "mpg")
   expect_true(is.data.frame(result))
@@ -136,7 +132,7 @@ test_that("summarize_data handles NA values correctly when na.rm = TRUE", {
 })
 ```
 
-    ## Test passed 😸
+    ## Test passed 🎊
 
 ``` r
 test_that("summarize_data handles NA values correctly when na.rm = FALSE", {
@@ -148,10 +144,13 @@ test_that("summarize_data handles NA values correctly when na.rm = FALSE", {
 })
 ```
 
-    ## Test passed 😀
+    ## Test passed 🎊
 
 ``` r
 test_that("summarize_data throws an error for non-numeric summary_var", {
+  # Create a modified version of mtcars with a non-numeric column for testing
+  mtcars_test <- mtcars %>%
+    mutate(gear_factor = as.factor(gear))
   expect_error(summarize_data(mtcars_test, "cyl", "gear_factor"))
 })
 ```
@@ -164,4 +163,4 @@ test_that("summarize_data throws an error when group_var does not exist", {
 })
 ```
 
-    ## Test passed 🎊
+    ## Test passed 😸
