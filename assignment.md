@@ -58,12 +58,18 @@ summarize_data <- function(data, group_var, summary_var, na.rm = TRUE) {
     stop("summary_var must be a numeric column.")
   }
   
+  # Process 'data' to group and summarize specified variables
   data %>%
+    # Group data by the specified 'group_var' column
     group_by(.data[[group_var]]) %>%
+    # Calculate summary statistics for the 'summary_var' column:
+    # 'mean' - computes mean, ignoring NA values if 'na.rm' is TRUE
+    # 'sd' - computes standard deviation, also ignoring NAs based on 'na.rm'
     summarise(
       mean = mean(.data[[summary_var]], na.rm = na.rm),
       sd = sd(.data[[summary_var]], na.rm = na.rm)
     ) %>%
+    # Remove grouping structure from the data to return a regular data frame
     ungroup()
 }
 ```
@@ -81,7 +87,7 @@ examples.
 ### Example 1: Summarizing Miles Per Gallon by Cylinder Count in `mtcars`
 
 ``` r
-# Example 1: Summarize mpg by cyl in mtcars
+# Summarize mpg by cyl in mtcars
 summary_mtcars <- summarize_data(mtcars, "cyl", "mpg")
 print(summary_mtcars)
 ```
@@ -143,7 +149,7 @@ test_that("summarize_data works correctly with no NAs", {
 })
 ```
 
-    ## Test passed 🥇
+    ## Test passed 🌈
 
 ``` r
 test_that("summarize_data handles NA values correctly when na.rm = TRUE", {
@@ -155,7 +161,7 @@ test_that("summarize_data handles NA values correctly when na.rm = TRUE", {
 })
 ```
 
-    ## Test passed 😀
+    ## Test passed 🎊
 
 ``` r
 test_that("summarize_data handles NA values correctly when na.rm = FALSE", {
@@ -167,7 +173,7 @@ test_that("summarize_data handles NA values correctly when na.rm = FALSE", {
 })
 ```
 
-    ## Test passed 🎉
+    ## Test passed 🎊
 
 ``` r
 test_that("summarize_data throws an error for non-numeric summary_var", {
@@ -177,7 +183,7 @@ test_that("summarize_data throws an error for non-numeric summary_var", {
 })
 ```
 
-    ## Test passed 🥳
+    ## Test passed 🎉
 
 ``` r
 test_that("summarize_data throws an error when group_var does not exist", {
@@ -185,4 +191,4 @@ test_that("summarize_data throws an error when group_var does not exist", {
 })
 ```
 
-    ## Test passed 🌈
+    ## Test passed 🥇
